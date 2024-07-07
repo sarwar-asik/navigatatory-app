@@ -15,7 +15,7 @@ export default function Blog({ navigation, route }: { navigation: any, route: an
 
             <View>
                 <Text>User Details:</Text>
-                <Text>User Name : {userData.name}</Text>
+                <Text>User Name : {userData?.name}</Text>
             </View>
         </View>
     )

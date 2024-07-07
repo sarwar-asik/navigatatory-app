@@ -5,31 +5,23 @@ import { StyleSheet, Text, View } from 'react-native';
 import Home from './page/Home/Home';
 import Blog from './page/Blogs/Blog';
 import Logo from './components/Common/Logo';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Profile from './page/profile/Profile';
 
 
 
 
-const Stack = createNativeStackNavigator();
+// const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 export default function App() {
   return (
-    <NavigationContainer >
-      <Stack.Navigator initialRouteName='Home' screenOptions={{
-        headerStyle: {
-          backgroundColor: '#50B498',
-        },
-        headerTintColor: 'white',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-        headerTitleAlign: "center",
-        // headerTitle: () => <Logo />,
-      }}>
-        <Stack.Screen name='Home' component={Home} options={{ title: "Home" }} />
-        <Stack.Screen name='Blog' component={Blog} options={{
-          title: "Blog",
-          headerRight: () => <Logo />
-        }} />
-      </Stack.Navigator>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name='Home' component={Home} />
+        <Tab.Screen name='Blog' component={Blog} />
+        <Tab.Screen name='Profile' component={Profile} />
+
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
